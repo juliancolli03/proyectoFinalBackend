@@ -1,0 +1,27 @@
+{{!-- {{#> body }} --}}
+  <h1>Vista de Productos</h1>
+
+  {{#if productos}}
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>NOMBRE</th>
+          <th>PRECIO</th>
+          <th>categoria</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each productos}}
+        <tr>
+          <td>{{{title}}}</td>
+          <td>{{{price}}}</td>
+                    <td>{{{categoria}}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  {{else}}
+    <div class="alert alert-danger">No hay productos</div>
+  {{/if}}       

@@ -1,0 +1,73 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "node desafio16/autocanon.js",
+    "start": "node desafio16/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliancolli03/backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juliancolli03/backend/issues"
+  },
+  "homepage": "https://github.com/juliancolli03/backend#readme",
+  "dependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
+    "@faker-js/faker": "^7.6.0",
+    "@google-cloud/firestore": "^6.4.1",
+    "0x": "^5.4.1",
+    "autocannon": "^7.10.0",
+    "bcrypt": "^5.1.0",
+    "chai": "^4.3.7",
+    "compression": "^1.7.4",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "faker": "^6.6.6",
+    "firebase": "^9.15.0",
+    "firebase-admin": "^11.4.0",
+    "forever": "^4.0.3",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^9.0.0",
+    "knex": "^2.3.0",
+    "koa": "^2.14.1",
+    "koa-body": "^6.0.1",
+    "koa-passport": "^6.0.0",
+    "koa-router": "^12.0.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^8.0.0",
+    "minimist": "^1.2.7",
+    "moongose": "^1.0.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.9.1",
+    "normalizr": "^3.6.2",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pino": "^8.10.0",
+    "pug": "^3.0.2",
+    "session-file-store": "^1.5.0",
+    "socket.io": "^4.5.3",
+    "sqlite3": "^5.1.2",
+    "twilio": "^4.8.0",
+    "typescript": "^4.9.3"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  },
+  "description": ""
+}

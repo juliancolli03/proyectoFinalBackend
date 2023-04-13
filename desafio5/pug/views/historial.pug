@@ -1,0 +1,19 @@
+block content
+
+
+  if(productos.length > 0)
+    .table-responsive
+      table.table.table-dark
+        tr(style='color: yellow;')
+          th Nombre
+          th Categoria
+          th Precio
+          each product in productos
+
+            tr
+              td=product.nombre
+              td=product.categoria
+              td=product.precio
+
+  else
+    h3.alert.alert-danger no se encontraron datos
