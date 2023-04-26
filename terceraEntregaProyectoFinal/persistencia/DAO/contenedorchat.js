@@ -9,7 +9,6 @@ mongoose.connect(MONGO, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, (err) => {
-   
 });
 
 
@@ -19,7 +18,7 @@ class Container {
         const data = await modelsChat.find({}, {_id:0, __v:0})
         return data
     }
-
+    
     async addChat(data){
         const dataAdd = new modelsChat(data)
         const add = await dataAdd.save()

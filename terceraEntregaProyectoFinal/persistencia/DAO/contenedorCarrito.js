@@ -16,9 +16,9 @@ mongoose.connect(MONGO, {
 class containerCart {
 	async addCart(data) {
 		try {
-			const dataAdd = new cartModels(data);
-			const cartAdd = await dataAdd.save();
-			return cartAdd;
+			const dataAdd = new cartModels(data)
+			const cartAdd = await dataAdd.save()
+			return cartAdd
 		} catch (err) {
 			console.log(err)
 		}
@@ -26,29 +26,28 @@ class containerCart {
 
 	async getCart(correo) {
 		try {
-			const cart = await cartModels.findOne({ 'autor.username': correo }
-			);
-			return cart;
+			const cart = await cartModels.findOne({ 'autor.username': correo })
+			return cart
 		} catch (err) {
-			console.log('Error al buscar el carrito ' + err);
+			console.log('Error al buscar el carrito ' + err)
 		}
 	}
 
 	async updateCart(correo, data) {
 		try {
-			const producUpdate = await cartModels.updateOne({ 'autor.username': correo }, data);
-			return producUpdate;
+			const producUpdate = await cartModels.updateOne({ 'autor.username': correo }, data)
+			return producUpdate
 		} catch (err) {
-			console.log('Error al buscar el carrito y actualizar ' + err);
+			console.log('Error al buscar el carrito y actualizar ' + err)
 		}
 	}
 
 	async deleteCart(correo) {
 		try {
-			const producDelete = await cartModels.deleteOne({ 'autor.username': correo });
-			return producDelete;
+			const producDelete = await cartModels.deleteOne({ 'autor.username': correo })
+			return producDelete
 		} catch (error) {
-			console.log('Error al borrar el carrito ' + err);
+			console.log('Error al borrar el carrito ' + err)
 		}
 	}
 }

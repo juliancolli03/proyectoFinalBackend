@@ -1,32 +1,18 @@
 const socket = io()
-
-const autor = new normalizr.schema.Entity('autor',{},{idAttribute: "email"})
-const messageSchema = new normalizr.schema.Entity('mensaje', {
-  autores: autor
-})
-const messagesSchema = new normalizr.schema.Entity("messages", {
-  messages: [messageSchema]
-});
 socket.on("menssages",data=>{
-    const dataDesnor = normalizr.denormalize(data.result, messagesSchema, data.entities)    
-    console.log(dataDesnor)
-    const html = dataDesnor.messages.map(msj => {
+    
+    const html = data.map(msj => {
         return `<div>
-        <strong>${msj.autor.email}</strong>
-        <strong>${msj.fecha}</strong>
-        <em>${msj.text}</em>
+        <strong>${msj.autor.email}:</strong>
+        <strong>${msj.text}</strong>
+        <em>${msj.fecha}</em>
         </div>`
     })
     .join(" ")
 
     document.getElementById("messagesDeUsers").innerHTML = html
-    console.log()
     })
 
-    socket.on('compres', data => {
-        const html = `<strong>${"Porcentaje de compresion: " +data}</strong>`
-        document.getElementById("compresion").innerHTML = html
-    })
     
 
 function addMsj() {
@@ -36,12 +22,9 @@ function addMsj() {
             email: document.getElementById("email").value,
         },
         text: document.getElementById("textoo").value,
-
-
     }
     
     socket.emit('new-message', message)
 }
 
 
-console.log(foto)

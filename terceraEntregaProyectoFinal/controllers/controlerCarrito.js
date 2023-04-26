@@ -1,28 +1,27 @@
-const containerProducts = require("../container/contenedorProd")
-const containerCart = require("../container/contenedorCarrito")
+const containerProducts = require("../persistencia/DAO/contenedorProd")
+const containerCart = require("../persistencia/DAO/contenedorCarrito")
 
-const carrito = new containerCart();
-const producto = new containerProducts();
+const carrito = new containerCart()
+const producto = new containerProducts()
 
- const getCarrito = (req, res) => {
-    // console.log(req.username)
+const getCarrito = (req, res) => {
 
-    const correo = req.user.username;
+    const correo = req.user.username
 
 	carrito
 		.getCart(correo)
 		.then((carritos) => {
-			console.log(carritos);
-			res.json({ carritos });
+			console.log(carritos)
+			res.json({ carritos })
 		})
 		.catch((err) => {
-			res.json(err);
+			res.json(err)
 		});
 };
 
 const postProductoCarrito = (req, res) => {
-	const correo = req.user.username;
-	const idProducto = req.params.id;
+	const correo = req.user.username
+	const idProducto = req.params.id
 	carrito.getCart(correo).then((cart) => {
 		if (!cart) {
 			const newCart = {
@@ -35,7 +34,7 @@ const postProductoCarrito = (req, res) => {
 				productos: [],
 				timestamp: Date.now(),
 			};
-			carrito.addCart(newCart);
+			carrito.addCart(newCart)
 		}
 	});
 	producto.getId(idProducto).then((producto) => {
@@ -45,11 +44,11 @@ const postProductoCarrito = (req, res) => {
 	res.json(carrito)
 };
 const deleteProductoCarrito = (req, res) => {
-	const idProducto = req.body.id;
-	const idCarrito = req.user.username;
+	const idProducto = req.body.id
+	const idCarrito = req.user.username
 
 	producto.getId(idProducto).then((producto) => {
-		let product = producto;
+		let product = producto
 		carrito.updateCart(idCarrito, { $pull: { productos: product } });
 		
 	});
@@ -57,7 +56,7 @@ const deleteProductoCarrito = (req, res) => {
 	res.json(carrito)
 };
 
- const deleteCarrito = (req, res) => {
+const deleteCarrito = (req, res) => {
 	carrito
 		.deleteCart(req.user.username)
 	res.json(carrito)

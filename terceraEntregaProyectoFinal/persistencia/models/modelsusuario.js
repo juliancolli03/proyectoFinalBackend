@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const collectionUsuario = "Usuario";
+const collectionUsuario = "Usuario"
 
 const schemaUsuario = new mongoose.Schema({
     name: String,
@@ -13,6 +13,6 @@ const schemaUsuario = new mongoose.Schema({
     urlfoto: String,
 });
 
-const modelsUsuario = mongoose.model(collectionUsuario, schemaUsuario);
+const modelsUsuario = mongoose.model(collectionUsuario, schemaUsuario)
 
 module.exports= modelsUsuario

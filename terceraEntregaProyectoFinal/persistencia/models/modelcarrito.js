@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const collectionCart = 'carrito';
+const collectionCart = 'carrito'
 
 const schemaCart = new mongoose.Schema({
 	autor: {
@@ -13,6 +13,6 @@ const schemaCart = new mongoose.Schema({
 	timestamp: String,
 });
 
-const modelCart = mongoose.model(collectionCart, schemaCart);
+const modelCart = mongoose.model(collectionCart, schemaCart)
 
 module.exports=modelCart;

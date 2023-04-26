@@ -1,19 +1,19 @@
-const containerProducts = require("../container/contenedorProd")
+const containerProducts = require("../persistencia/DAO/contenedorProd")
 const products = new containerProducts();
 
  const get = (req, res) => {
 	products
 		.get()
 		.then((productos) => {
-			res.json({ productos});
+			res.json({ productos})
 		})
 		.catch((err) => {
-			res.json(err);
+			res.json(err)
 		});
 };
 
  const add = (req, res) => {
-	const correo = req.user.username;
+	const correo = req.user.username
 	if(correo=="jc@gmail.com"){
 	const newProduct = {
 		timestamp: Date.now(),
@@ -27,7 +27,7 @@ const products = new containerProducts();
 	products
 		.add(newProduct)
 		.then(() => {
-			res.json({newProduct});
+			res.json({newProduct})
 		})
 		.catch((err) => {
 			res.json(err);
@@ -39,10 +39,10 @@ else{
 };
 
 const update = (req, res) => {
-	const correo = req.user.username;
+	const correo = req.user.username
 	if(correo=="jc@gmail.com"){
 
-	const id = req.params.id;
+	const id = req.params.id
 	const newProduct = {
 		timestamp: Date.now(),
 		nombre: req.body.nombre,
@@ -52,14 +52,13 @@ const update = (req, res) => {
 		foto: req.body.foto,
 		stock: req.body.stock,
 	};
-	console.log(newProduct);
 	products
 		.update(id, newProduct)
 		.then(() => {
-			res.json({newProduct});
+			res.json({newProduct})
 		})
 		.catch((err) => {
-			res.json(err);
+			res.json(err)
 		});
 }else{
 	res.json("no estas autorizado a actualizar productos")
@@ -67,22 +66,22 @@ const update = (req, res) => {
 };
 
  const deelete = (req, res) => {
-	const correo = req.user.username;
+	const correo = req.user.username
 	if(correo=="jc@gmail.com"){
-	const id = req.params.id;
+	const id = req.params.id
 	products
 		.delete(id)
 		.then(() => {
-			res.json({products});
+			res.json({products})
 		})
 		.catch((err) => {
-			res.json(err);
-		});
+			res.json(err)
+		})
 }else{
 	res.json("no estas autorizado a borrar productos")
 }
- }
- ;
+}
+
 
 
 module.exports= {get,add,update,deelete}
