@@ -15,7 +15,7 @@ const passport = require("passport")
 const dotenv = require("dotenv")
 const productos = require("./routers/rutaproducto")
 const carrito = require("./routers/rutacarrito")
-dotenv.config();
+dotenv.config()
 const parseArgs = require('minimist')
 const MONGO = process.env.DBNUBE;
 

@@ -1,7 +1,8 @@
 const containerProducts = require("../persistencia/DAO/contenedorProd")
-const products = new containerProducts();
-
- const get = (req, res) => {
+const products = new containerProducts()
+const dotenv = require("dotenv")
+dotenv.config()
+const get = (req, res) => {
 	products
 		.get()
 		.then((productos) => {
@@ -12,9 +13,9 @@ const products = new containerProducts();
 		});
 };
 
- const add = (req, res) => {
+const add = (req, res) => {
 	const correo = req.user.username
-	if(correo=="jc@gmail.com"){
+	if(correo==process.env.USERADMIN){
 	const newProduct = {
 		timestamp: Date.now(),
 		nombre: req.body.nombre,
@@ -40,7 +41,7 @@ else{
 
 const update = (req, res) => {
 	const correo = req.user.username
-	if(correo=="jc@gmail.com"){
+	if(correo==process.env.USERADMIN){
 
 	const id = req.params.id
 	const newProduct = {
@@ -65,9 +66,9 @@ const update = (req, res) => {
 }
 };
 
- const deelete = (req, res) => {
+const deelete = (req, res) => {
 	const correo = req.user.username
-	if(correo=="jc@gmail.com"){
+	if(correo==process.env.USERADMIN){
 	const id = req.params.id
 	products
 		.delete(id)

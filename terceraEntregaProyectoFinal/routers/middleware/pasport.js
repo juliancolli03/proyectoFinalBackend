@@ -12,7 +12,7 @@ function createHash(password) {
 passport.use("register", new LocalStrategy({
     passReqToCallback: true,
 }, async (req, username, password, done) => {
-    const { name, direccion, numero, edad, urlfoto } = req.body
+    const { name, direccion, numero, edad} = req.body
     const usuario = await dbUsuario.getUsuario(username)
     const {file} = req
 
@@ -28,10 +28,8 @@ passport.use("register", new LocalStrategy({
         numero,
         edad,
         foto:file.filename,
-        urlfoto,
     };
 
-   const dataUser = await dbUsuario.addUsuario(newUser)
     done(null, newUser)
 }));
 
@@ -44,7 +42,7 @@ passport.use("login", new LocalStrategy(async (username, password, done) => {
     const usuario = await dbUsuario.getUsuario(username)
 
     if (!usuario) {
-     error.error("no existe usuario")
+    error.error("no existe usuario")
         return done("no existe el usuario", false)
     };
 

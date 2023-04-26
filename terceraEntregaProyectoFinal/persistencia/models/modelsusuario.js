@@ -10,7 +10,6 @@ const schemaUsuario = new mongoose.Schema({
     numero: Number,
     edad: Number,
     foto: String,
-    urlfoto: String,
 });
 
 const modelsUsuario = mongoose.model(collectionUsuario, schemaUsuario)
