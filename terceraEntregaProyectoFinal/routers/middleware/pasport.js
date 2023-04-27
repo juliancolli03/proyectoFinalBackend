@@ -1,5 +1,5 @@
 const container = require("../../persistencia/DAO/contenedor")
-const {error} = require("../../log")
+const {error} = require("../../logs/log")
 const passport = require ("passport")
 const LocalStrategy = require("passport-local").Strategy
 const bCrypt = require("bcrypt")
@@ -29,6 +29,7 @@ passport.use("register", new LocalStrategy({
         edad,
         foto:file.filename,
     };
+    await dbUsuario.addUsuario(newUser)
 
     done(null, newUser)
 }));

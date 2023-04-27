@@ -1,10 +1,8 @@
-const containerProducts = require("../persistencia/DAO/contenedorProd")
-const products = new containerProducts()
+const {getAll,addProduct,updateProduct,deleteProduct} = require("../servicios/productos")
 const dotenv = require("dotenv")
 dotenv.config()
 const get = (req, res) => {
-	products
-		.get()
+	getAll()
 		.then((productos) => {
 			res.json({ productos})
 		})
@@ -25,8 +23,7 @@ const add = (req, res) => {
 		foto: req.body.foto,
 		stock: req.body.stock,
 	};
-	products
-		.add(newProduct)
+	addProduct(newProduct)
 		.then(() => {
 			res.json({newProduct})
 		})
@@ -53,8 +50,8 @@ const update = (req, res) => {
 		foto: req.body.foto,
 		stock: req.body.stock,
 	};
-	products
-		.update(id, newProduct)
+	updateProduct(id, newProduct)
+
 		.then(() => {
 			res.json({newProduct})
 		})
@@ -70,10 +67,10 @@ const deelete = (req, res) => {
 	const correo = req.user.username
 	if(correo==process.env.USERADMIN){
 	const id = req.params.id
-	products
-		.delete(id)
+	
+	const productoBorrado = deleteProduct(id)
 		.then(() => {
-			res.json({products})
+			res.json({productoBorrado})
 		})
 		.catch((err) => {
 			res.json(err)

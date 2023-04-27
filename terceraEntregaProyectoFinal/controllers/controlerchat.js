@@ -1,4 +1,4 @@
-const {peligro} = require("../log")
+const {peligro} = require("../logs/log")
 const {infoo} = require("../nodemailer/nodemailer")
 
 const mostrarDatosPantalla =  async (req, res) => {
@@ -8,12 +8,11 @@ const mostrarDatosPantalla =  async (req, res) => {
     const direccion = req.user.direccion
     const numero = req.user.numero
     const edad = req.user.edad
-    const fotohtml = req.user.urlfoto
     const fotonormal = req.user.foto
     if (usuario === null || usuario === undefined) {
         return res.redirect("/ingresar")
     }
-    res.render('inicio', {usuario,fotohtml,fotonormal} )
+    res.render('inicio', {usuario,fotonormal} )
     infoo(usuario,correo,direccion,numero,edad)
   }
 

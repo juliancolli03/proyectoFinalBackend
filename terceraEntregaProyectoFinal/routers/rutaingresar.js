@@ -18,7 +18,7 @@ ingresar.get("/errorIngresar", (req, res,done) => {
 
 registrarse.get("/", getUsuario);
 registrarse.post("/",upload.single("foto"),
- passport.authenticate("register", {
+passport.authenticate("register", {
     failureRedirect: "/registrarse/errorRegistro", 
     successRedirect: "/chat",
 }));

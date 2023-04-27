@@ -28,7 +28,6 @@ class containerProducts {
 		try {
 			if (name) {
 				const data = await modelProduc.find({ nombre: name })
-                //cambiar a nombre si no va y/o ponerle find
 				return data
 			} else {
 				const data = await modelProduc.find()

@@ -13,8 +13,6 @@ socket.on("menssages",data=>{
     document.getElementById("messagesDeUsers").innerHTML = html
     })
 
-    
-
 function addMsj() {
     
     const message = {

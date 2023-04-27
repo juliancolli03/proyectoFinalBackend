@@ -14,12 +14,16 @@
 <body>
     <div class="container mt-3">
         <div class="jumbotron">
-            <%- include("./mandarsocket.ejs") %> 
 
-            <%- include('./historial.ejs')%>
+            <%- include('./ingresar.ejs')%>
+            <br>
+
+            <h1>
+                Si no tenes cuenta, registrate!!!
+        </h1>
+            <%- include('./registrate.ejs')%>
+
         </div>
     </div>
 </body>
-<script src="/socket.io/socket.io.js"></script>
-<script src="/front.js"></script>
 </html>

@@ -1,17 +1,11 @@
-const containerProducts = require("../persistencia/DAO/contenedorProd")
-const containerCart = require("../persistencia/DAO/contenedorCarrito")
-
-const carrito = new containerCart()
-const producto = new containerProducts()
+const {getCart,addCart,cartUpdate,getidProduct,updateCartDeletedProduct,deleteCart} = require("../servicios/carrito")
 
 const getCarrito = (req, res) => {
 
     const correo = req.user.username
 
-	carrito
-		.getCart(correo)
+	getCart(correo)
 		.then((carritos) => {
-			console.log(carritos)
 			res.json({ carritos })
 		})
 		.catch((err) => {
@@ -22,7 +16,8 @@ const getCarrito = (req, res) => {
 const postProductoCarrito = (req, res) => {
 	const correo = req.user.username
 	const idProducto = req.params.id
-	carrito.getCart(correo).then((cart) => {
+	getCart(correo)
+	.then((cart) => {
 		if (!cart) {
 			const newCart = {
 				autor: {
@@ -34,32 +29,31 @@ const postProductoCarrito = (req, res) => {
 				productos: [],
 				timestamp: Date.now(),
 			};
-			carrito.addCart(newCart)
+			addCart(newCart)
 		}
 	});
-	producto.getId(idProducto).then((producto) => {
+	getidProduct(idProducto).then((producto) => {
 		let product = producto;
-		carrito.updateCart(correo, { $push: { productos: product } });
+		cartUpdate(correo, { $push: { productos: product } });
 	});
-	res.json(carrito)
+	res.json(getCart(correo))
 };
 const deleteProductoCarrito = (req, res) => {
 	const idProducto = req.body.id
 	const idCarrito = req.user.username
 
-	producto.getId(idProducto).then((producto) => {
+	getidProduct(idProducto).then((producto) => {
 		let product = producto
-		carrito.updateCart(idCarrito, { $pull: { productos: product } });
-		
+		updateCartDeletedProduct(idCarrito, { $pull: { productos: product } })
 	});
 
-	res.json(carrito)
+	res.json(getCart(idCarrito))
 };
 
 const deleteCarrito = (req, res) => {
-	carrito
-		.deleteCart(req.user.username)
-	res.json(carrito)
+	const correo = req.user.username
+    deleteCart(correo)
+	res.json(getCart(correo))
 };
 
 module.exports={getCarrito,postProductoCarrito,deleteCarrito,deleteProductoCarrito}

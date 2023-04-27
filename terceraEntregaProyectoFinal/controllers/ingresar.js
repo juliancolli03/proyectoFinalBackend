@@ -1,13 +1,13 @@
 const getUsuario = (req, res) => {
     if (req.isAuthenticated()) {
-        return res.redirect("/productos")
+        return res.redirect("/chat")
     }
-    return res.render("iniciodeingreso")
+    return res.render("iniciodesesion")
 };
 
 const salir = (req, res) => {
     const usuario = req.user.name;
-    req.logout(err => {
+    req.logout(e => {
         const saludo = `Hasta luego ${usuario}`;
         res.render("saludo", {saludo});
     });
