@@ -1,4 +1,4 @@
-const {peligro} = require("../../logs/log")
+const {peligro} = require("../logs/log")
 const {infoo} = require("../nodemailer/nodemailer")
 
 const mostrarDatosPantalla =  async (req, res) => {
