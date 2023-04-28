@@ -35,7 +35,7 @@ Tambien se utilizo el motor de plantillas de EJS para el Front-end.
 Cuando quieras hacer un pedido, vas a tener que apretar el boton hacer pedido, que me va a mandar a mi numero de whatsapp y correo, la informacion.
 
 ## Muchas gracias por acompañarnos en toda la cursada profe. Un gusto haber aprendido con vos programacion backend! 
-
+Link funcionando: 
 Hecho con 🧡 por Julian Colli.
 
 
