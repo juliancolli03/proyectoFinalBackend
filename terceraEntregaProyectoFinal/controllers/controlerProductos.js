@@ -8,7 +8,7 @@ const get = (req, res) => {
 		})
 		.catch((err) => {
 			res.json(err)
-		});
+		})
 };
 
 const add = (req, res) => {
@@ -29,7 +29,7 @@ const add = (req, res) => {
 		})
 		.catch((err) => {
 			res.json(err);
-		});
+		})
 }
 else{
 	res.json("no estas autorizado a crear productos")
@@ -49,7 +49,7 @@ const update = (req, res) => {
 		precio: req.body.precio,
 		foto: req.body.foto,
 		stock: req.body.stock,
-	};
+	}
 	updateProduct(id, newProduct)
 
 		.then(() => {
@@ -57,17 +57,16 @@ const update = (req, res) => {
 		})
 		.catch((err) => {
 			res.json(err)
-		});
+		})
 }else{
 	res.json("no estas autorizado a actualizar productos")
 }
-};
+}
 
 const deelete = (req, res) => {
 	const correo = req.user.username
 	if(correo==process.env.USERADMIN){
 	const id = req.params.id
-	
 	const productoBorrado = deleteProduct(id)
 		.then(() => {
 			res.json({productoBorrado})
@@ -79,7 +78,5 @@ const deelete = (req, res) => {
 	res.json("no estas autorizado a borrar productos")
 }
 }
-
-
 
 module.exports= {get,add,update,deelete}

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const modelsChat = require("../models/modelsChat")
 const dotenv = require("dotenv")
-dotenv.config();
-const MONGO = process.env.DBNUBE;
+dotenv.config()
+const MONGO = process.env.DBNUBE
 
-mongoose.set('strictQuery', false);
+mongoose.set('strictQuery', false)
 mongoose.connect(MONGO, {
     useNewUrlParser: true,
     useUnifiedTopology: true

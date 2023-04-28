@@ -15,7 +15,7 @@ const cartUpdate = (correo,product) =>{
     carrito.updateCart(correo, { $push: { productos: product } })
 }
 const updateCartDeletedProduct = (idCarrito,product) =>{
-    carrito.updateCart(idCarrito, { $pull: { productos: product } });
+    carrito.updateCart(idCarrito, { $pull: { productos: product } })
 }
 const deleteCart = (correo) =>{
     carrito.deleteCart(correo)

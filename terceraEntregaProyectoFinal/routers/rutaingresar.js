@@ -26,5 +26,5 @@ registrarse.get("/errorRegistro", (req, res,done)=> {
     done("error de registro")
 });
 
-salirse.get("/", salir);
+salirse.get("/", salir)
 module.exports= {ingresar,registrarse,salirse}

@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "script.js",
   "scripts": {
-    "test": "node desafio16/autocanon.js",
-    "start": "node desafio16/server.js"
+    "start": "node terceraEntregaProyectoFinal/server.js"
   },
   "repository": {
     "type": "git",

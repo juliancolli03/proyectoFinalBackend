@@ -32,7 +32,7 @@ DELETE localhost:8080/carrito ELIMINA TODO EL CARRITO
 Se utilizó Mongo Atlas para el guardado de mensajes, productos, carritos y sesiones.
 Tambien se utilizo el motor de plantillas de EJS para el Front-end.
 
-Cuando quieras hacer un pedido, vas a tener q apretar el boton hacer pedido, que me va a mandar a mi numero de wsp y correo, la info.
+Cuando quieras hacer un pedido, vas a tener que apretar el boton hacer pedido, que me va a mandar a mi numero de whatsapp y correo, la informacion.
 
 ## Muchas gracias por acompañarnos en toda la cursada profe. Un gusto haber aprendido con vos programacion backend! 
 

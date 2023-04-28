@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const dotenv = require("dotenv")
 const modelProduc = require("../models/modelsProducto")
-dotenv.config();
+dotenv.config()
 
-const MONGO = process.env.DBNUBE;
+const MONGO = process.env.DBNUBE
 
-mongoose.set('strictQuery', false);
+mongoose.set('strictQuery', false)
 mongoose.connect(MONGO, {
     useNewUrlParser: true,
     useUnifiedTopology: true

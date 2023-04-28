@@ -8,10 +8,10 @@ const getUsuario = (req, res) => {
 const salir = (req, res) => {
     const usuario = req.user.name;
     req.logout(e => {
-        const saludo = `Hasta luego ${usuario}`;
-        res.render("saludo", {saludo});
-    });
-};
+        const saludo = `Hasta luego ${usuario}`
+        res.render("saludo", {saludo})
+    })
+}
 
 module.exports = {
     getUsuario,
