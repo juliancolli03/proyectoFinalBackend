@@ -5,6 +5,10 @@
   "scripts": {
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliancolli03/proyectoFinalBackend.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
