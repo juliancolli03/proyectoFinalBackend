@@ -8,7 +8,6 @@ const dbUsuario = new container()
 function createHash(password) {
     return bCrypt.hashSync( password, bCrypt.genSaltSync(10), null )
 }
-  
 passport.use("register", new LocalStrategy({
     passReqToCallback: true,
 }, async (req, username, password, done) => {

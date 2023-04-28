@@ -1,4 +1,4 @@
-const {getUsuario,salir} = require("../controllers/ingresar")
+const {getUsuario,salir} = require("../controllers/controlerIngresar")
 const passport = require("./middleware/pasport")
 const { Router } = require('express')
 const upload = require("../multer")

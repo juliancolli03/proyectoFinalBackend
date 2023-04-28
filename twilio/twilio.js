@@ -9,6 +9,6 @@ const enviarMsj  = (productosCarro,usuario,correo)=> client.messages
     body: "Nuevo pedido de" + productosCarro + ". El nombre del q lo solicto es "+ usuario +"y su mail es " + correo,
     from: 'whatsapp:+14155238886',
     to: 'whatsapp:+5491169253825'
- })
+})
 
 module.exports= enviarMsj

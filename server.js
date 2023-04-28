@@ -72,7 +72,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use('/ingresar', ingresar)
 app.use("/registrarse", registrarse);
-app.use("/salirse", salirse);
+app.use("/salirse", salirse)
 app.use('/chat',chat)
 app.use("/productos",productos)
 app.use("/carrito",carrito)
