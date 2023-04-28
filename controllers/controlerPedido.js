@@ -1,6 +1,6 @@
 const containerCart = require("../persistencia/DAO/contenedorCarrito")
 let miCarrito = new containerCart()
-const enviarMsj = require("../../twilio/twilio")
+const enviarMsj = require("../twilio/twilio")
 const {enviarMail} = require("../nodemailer/nodemailer.js")
 
 const hacerPedido = async (req,res)=>{
