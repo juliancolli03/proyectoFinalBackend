@@ -1,5 +1,5 @@
 const container = require("../../persistencia/DAO/contenedorUser")
-const {error} = require("../../logs/log")
+const {error} = require("../../../logs/log")
 const passport = require ("passport")
 const LocalStrategy = require("passport-local").Strategy
 const bCrypt = require("bcrypt")

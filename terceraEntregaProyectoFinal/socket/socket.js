@@ -6,7 +6,7 @@ const httpServer = new HttpServer(app)
 const io = new IOServer(httpServer)
 const container = require("../persistencia/DAO/contenedorchat")
 const { normalize, denormalize, schema } = require('normalizr')
-const {peligro,error,todos} = require("../logs/log")
+const {peligro,error,todos} = require("../../logs/log")
 let chat = new container()
 
 const socketChat = async (socket) =>{
